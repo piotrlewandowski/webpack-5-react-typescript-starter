@@ -1,8 +1,8 @@
-# Webpack 5 React Starter
+# Webpack 5 React TypeScript Starter
 
-Simple Webpack 5 React Starter. It contains:
+Simple Webpack 5 React TypeScript Starter. It contains:
 - [x] React 17.0.2
-- [x] Latest Webpack 5 (v5.56.1) and Webpack Dev Server 3 (v4.3.1) with Scope Hoisting enabled
+- [x] Latest Webpack 5 (v5.56.1) and Webpack Dev Server 4 (v4.3.1) with Scope Hoisting enabled
 - [x] TypeScript 4 (v4.4.3)
 - [x] Babel 7
 - [x] ECMAScript 6+ and JSX support
@@ -25,7 +25,7 @@ Simple Webpack 5 React Starter. It contains:
 
 ## Getting Started
 
-1. Clone the repository `git clone git@github.com:piotrlewandowski/webpack-5-react-starter.git`
+1. Clone the repository `gh repo clone piotrlewandowski/webpack-5-react-typescript-starter` (or if you're not using GitHub CLI: `git clone git@github.com:piotrlewandowski/webpack-5-react-typescript-starter.git`)
 2. If you're using NVM run `nvm use` inside project directory to use node version set in `.nvmrc` file
 3. Run `npm install` or `npm i` to install all the dependencies
 4. To begin development task, run `npm start`
