@@ -17,28 +17,18 @@ export default webpackMerge(baseConfig, {
 
   // Spin up a server for quick development
   devServer: {
-    // Enable hot reloading server.
-    hot: true,
-
     open: false,
 
     port: 8080,
 
-    contentBase: paths.public,
+    static: {
+      directory: paths.public,
+    },
 
     // Enable gzip compression of generated files.
     compress: true,
 
     historyApiFallback: true,
-
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000,
-    },
-
-    stats: {
-      colors: true,
-    },
   },
 
   module: {

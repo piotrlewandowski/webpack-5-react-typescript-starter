@@ -2,8 +2,8 @@
 
 Simple Webpack 5 React Starter. It contains:
 - [x] React 17.0.2
-- [x] Latest Webpack 5 (v5.34.0) and Webpack Dev Server 3 (v3.11.2) with Scope Hoisting enabled
-- [x] TypeScript 4 (v4.2.4)
+- [x] Latest Webpack 5 (v5.56.1) and Webpack Dev Server 3 (v4.3.1) with Scope Hoisting enabled
+- [x] TypeScript 4 (v4.4.3)
 - [x] Babel 7
 - [x] ECMAScript 6+ and JSX support
 - [x] [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement)
