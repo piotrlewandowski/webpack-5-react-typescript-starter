@@ -1,26 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { App } from './app';
 
 import './styles/main.scss';
 
-const render = () => {
-  ReactDOM.render(<App />, document.getElementById('root'));
-};
-
-// Enable Webpack hot module replacement
-if (module.hot) {
-  module.hot.accept('./app', () => {
-    render();
-  });
-
-  window.addEventListener('message', (e) => {
-    if (process.env.NODE_ENV !== 'production' && e.data && e.data.type === 'webpackInvalid') {
+if (process.env.NODE_ENV === 'development') {
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.addStatusHandler((status) => {
       // eslint-disable-next-line
-      console.clear();
-    }
-  });
+      if (status === 'prepare') console.clear();
+    });
+  }
 }
 
-render();
+createRoot(document.getElementById('root') as HTMLElement).render(<App />);
