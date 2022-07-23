@@ -4,6 +4,7 @@ import path from 'path';
 // Import webpack plugins
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 // Import paths
 import { paths } from './paths';
@@ -36,20 +37,6 @@ export default {
 
   module: {
     rules: [
-      // Enforcing linting before build
-      // The build should fail before it does anything else
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          formatter: require('eslint-formatter-friendly'),
-          cache: isDevelopment,
-          configFile: path.resolve(paths.root, '.eslintrc.json'),
-        },
-      },
-
       // JavaScript: Use Babel to transpile JavaScript files
       {
         test: /\.jsx?$/,
@@ -99,6 +86,14 @@ export default {
         viewport: 'width=device-width, initial-scale=1.0',
         charset: 'UTF-8',
       },
+    }),
+
+    new ESLintPlugin({
+      extensions: ['.ts', '.tsx'],
+      exclude: ['/node_modules/'],
+      formatter: require('eslint-formatter-friendly'),
+      cache: isDevelopment,
+      overrideConfigFile: path.resolve(paths.root, '.eslintrc.json'),
     }),
   ],
 };
