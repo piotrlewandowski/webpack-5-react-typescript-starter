@@ -6,9 +6,9 @@
   "main": "src/index.tsx",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "npm run dev",
+    "start": "yarn run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.dev.babel.js",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.config.prod.babel.js",
+    "build": "yarn run clean && cross-env NODE_ENV=production webpack --config config/webpack.config.prod.babel.js",
     "profile": "cross-env NODE_ENV=production webpack --profile --json --config config/webpack.config.prod.babel.js > ./dist/profile.json && webpack-bundle-analyzer ./dist/profile.json",
     "eslint:check": "eslint --ext .ts,.tsx --format friendly --ignore-path .gitignore src/",
     "eslint:fix": "eslint --fix --ext .ts,.tsx --format friendly src/",
