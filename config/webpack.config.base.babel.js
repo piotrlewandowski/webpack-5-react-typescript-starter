@@ -40,16 +40,9 @@ export default {
 
   module: {
     rules: [
-      // JavaScript: Use Babel to transpile JavaScript files
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-
       // TypeScript loader
       {
-        test: /\.tsx?$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: {
           loader: require.resolve('ts-loader'),
@@ -84,7 +77,7 @@ export default {
   plugins: [
     new WebpackNotifierPlugin({
       title: PKG.description,
-      message: 'Compilation done!',
+      emoji: true,
       alwaysNotify: true,
     }),
 
@@ -100,7 +93,7 @@ export default {
     }),
 
     new ESLintPlugin({
-      extensions: ['.ts', '.tsx'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
       exclude: ['/node_modules/'],
       formatter: require('eslint-formatter-friendly'),
       cache: isDevelopment,
