@@ -5,6 +5,7 @@ import path from 'path';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
 // Import paths
 import { paths } from './paths';
@@ -15,6 +16,8 @@ import PKG from '../package.json';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 export default {
+  mode: isDevelopment ? 'development' : 'production',
+
   target: 'web',
 
   // The base directory for resolving `entry`
@@ -48,7 +51,15 @@ export default {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        use: {
+          loader: require.resolve('ts-loader'),
+          options: {
+            getCustomTransformers: () => ({
+              before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
+            }),
+            transpileOnly: isDevelopment,
+          },
+        },
       },
 
       // SVG loader

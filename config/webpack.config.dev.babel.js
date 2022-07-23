@@ -3,6 +3,7 @@ import webpack from 'webpack';
 
 // Import webpack plugins
 import { merge as webpackMerge } from 'webpack-merge';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 // Import common configuration
 import baseConfig from './webpack.config.base.babel';
@@ -17,6 +18,9 @@ export default webpackMerge(baseConfig, {
 
   // Spin up a server for quick development
   devServer: {
+    // Enable hot reload
+    hot: true,
+
     open: false,
 
     port: 8080,
@@ -60,7 +64,7 @@ export default webpackMerge(baseConfig, {
 
   plugins: [
     // Only update what has changed on hot reload
-    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map',
     }),
