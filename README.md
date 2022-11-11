@@ -2,11 +2,11 @@
 
 Simple Webpack 5 React TypeScript Starter. It contains:
 - [x] React 18 (v18.2.0)
-- [x] Latest Webpack 5 (v5.73.0) and Webpack Dev Server 4 (v4.9.3) with Scope Hoisting enabled
-- [x] TypeScript 4 (v4.7.4)
+- [x] Latest Webpack 5 (v5.75.0) and Webpack Dev Server 4 (v4.11.1) with Scope Hoisting enabled
+- [x] TypeScript 4 (v4.8.4)
 - [x] Babel 7
 - [x] ECMAScript 6+ and JSX support
-- [x] [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement)
+- [x] [Fast Refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
 - [x] Production config
 - [x] Export separate vendor and runtime files
 - [x] Sass/SCSS support
